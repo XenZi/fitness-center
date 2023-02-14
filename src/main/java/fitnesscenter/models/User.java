@@ -1,5 +1,6 @@
 package fitnesscenter.models;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.TimeZone;
 
@@ -21,6 +22,7 @@ public class User {
 	private TimeZone timezone;
 	
 	public User() {
+		this.allLanguages = new ArrayList<Language>();		
 	}
 
 	public String getId() {
