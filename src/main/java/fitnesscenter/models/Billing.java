@@ -3,8 +3,8 @@ package fitnesscenter.models;
 public class Billing {
 
 	private String id;
-	private Trainer trainer;
-	private Client client;
+	private User trainer;
+	private User client;
 	private String ccNumber;
 	private float price;
 	
@@ -19,19 +19,19 @@ public class Billing {
 		this.id = id;
 	}
 
-	public Trainer getTrainer() {
+	public User getTrainer() {
 		return trainer;
 	}
 
-	public void setTrainer(Trainer trainer) {
+	public void setTrainer(User trainer) {
 		this.trainer = trainer;
 	}
 
-	public Client getClient() {
+	public User getClient() {
 		return client;
 	}
 
-	public void setClient(Client client) {
+	public void setClient(User client) {
 		this.client = client;
 	}
 
@@ -50,11 +50,6 @@ public class Billing {
 	public void setPrice(float price) {
 		this.price = price;
 	}
-	
-	
-	
-	
-	
 	
 	
 }

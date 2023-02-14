@@ -1,5 +1,6 @@
 package fitnesscenter.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import fitnesscenter.enums.EEquipment;
@@ -16,6 +17,9 @@ public class ClientApplicationData {
 	private List<EGoals> goals;
 	
 	public ClientApplicationData() {
+		this.healthConditions = new ArrayList<EHealthConditions>();
+		this.equipment = new ArrayList<EEquipment>();
+		this.goals = new ArrayList<EGoals>();
 	}
 
 	public String getId() {

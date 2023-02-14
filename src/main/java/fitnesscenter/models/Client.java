@@ -1,5 +1,6 @@
 package fitnesscenter.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Client {
@@ -8,6 +9,8 @@ public class Client {
 	private List<TrainingSession> trainingSessionList;
 	
 	public Client() {
+		this.trainingSessionList = new ArrayList<TrainingSession>();
+		
 	}
 
 	public User getUser() {
