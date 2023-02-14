@@ -55,9 +55,10 @@ CREATE TABLE Trainers (
 CREATE TABLE WatchData (
 	id varchar(36) not null unique,
     heart_rate varchar(100) not null,
-    calories varchar(10) not null,
+    calories float not null,
     PRIMARY KEY (id)
     );
+
     
 CREATE TABLE ClientApplicationData (
 	id varchar (36) not null unique,
