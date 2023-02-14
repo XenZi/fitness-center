@@ -6,6 +6,8 @@ CREATE TABLE Languages (
     active boolean,
     PRIMARY KEY (id)
     );
+    
+
 
     
 CREATE TABLE Users (
@@ -120,5 +122,9 @@ CREATE TABLE Companies (
     active boolean not null,
     PRIMARY KEY (id)
     );
+
+INSERT INTO languages(id,language_name,active) values ('l1','English',1)
+INSERT INTO Companies(id,c_name,credit_card_number,active) values ('c1','FitnessCenter','FC03',1)
+
     
 
