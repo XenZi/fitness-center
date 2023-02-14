@@ -6,10 +6,7 @@ CREATE TABLE Languages (
     active boolean,
     PRIMARY KEY (id)
     );
-    
-
-
-    
+        
 CREATE TABLE Users (
 	id varchar (36) not null unique,
     phone_number varchar(50) not null,
