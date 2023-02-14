@@ -123,8 +123,8 @@ CREATE TABLE Companies (
     PRIMARY KEY (id)
     );
 
-INSERT INTO languages(id,language_name,active) values ('l1','English',1)
-INSERT INTO Companies(id,c_name,credit_card_number,active) values ('c1','FitnessCenter','FC03',1)
+INSERT INTO languages(id,language_name,active) values ('l1','English',1);
+INSERT INTO Companies(id,c_name,credit_card_number,active) values ('c1','FitnessCenter','FC03',1);
 
     
 
