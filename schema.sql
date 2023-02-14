@@ -6,7 +6,10 @@ CREATE TABLE Languages (
     active boolean,
     PRIMARY KEY (id)
     );
-        
+    
+
+
+    
 CREATE TABLE Users (
 	id varchar (36) not null unique,
     phone_number varchar(50) not null,
@@ -24,12 +27,17 @@ CREATE TABLE Users (
     FOREIGN KEY (main_language) REFERENCES Languages(id)
     );
     
+    
 CREATE TABLE UsersLanguages (
 	user_id varchar(36) not null,
     language_id varchar(36) not null,
     FOREIGN KEY (user_id) REFERENCES Users (id),
     FOREIGN KEY (language_id) REFERENCES Languages (id)
     );
+    
+
+    
+    
     
 CREATE TABLE Reviews (
 	id varchar(36) not null unique,
@@ -55,9 +63,11 @@ CREATE TABLE Trainers (
 CREATE TABLE WatchData (
 	id varchar(36) not null unique,
     heart_rate varchar(100) not null,
-    calories varchar(10) not null,
+    calories float not null,
     PRIMARY KEY (id)
     );
+    
+    
     
 CREATE TABLE ClientApplicationData (
 	id varchar (36) not null unique,
@@ -120,8 +130,19 @@ CREATE TABLE Companies (
     PRIMARY KEY (id)
     );
 
-INSERT INTO languages(id,language_name,active) values ('l1','English',1);
-INSERT INTO Companies(id,c_name,credit_card_number,active) values ('c1','FitnessCenter','FC03',1);
+INSERT INTO languages(id,language_name,active) VALUES ('l1','English',1);
+INSERT INTO languages(id,language_name,active) VALUES ('l2','English',1);
+INSERT INTO languages(id,language_name,active) VALUES ('l3','Spanish',1);
+
+INSERT INTO Companies(id,c_name,credit_card_number,active) VALUES ('c1','FitnessCenter','FC03',1);
+
+INSERT INTO Users(id,phone_number,address,first_name,last_name,password,email,credit_card_number,main_language,role,timezone_id) VALUES ('u1','555333','Jovana Stojana','Kraljevic','Marko','jakasifra','jaka@jaka.com','cc01','l1','ADMIN','TZONE');
+
+INSERT INTO UsersLanguages(user_id,language_id) VALUES ('u1','l1');
+INSERT INTO UsersLanguages(user_id,language_id) VALUES ('u1','l2');
+INSERT INTO UsersLanguages(user_id,language_id) VALUES ('u1','l3');
+
+
 
     
 
