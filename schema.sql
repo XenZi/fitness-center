@@ -66,6 +66,7 @@ CREATE TABLE WatchData (
     calories float not null,
     PRIMARY KEY (id)
     );
+
     
     
     
