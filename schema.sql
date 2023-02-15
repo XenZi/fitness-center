@@ -36,9 +36,6 @@ CREATE TABLE UsersLanguages (
     );
     
 
-    
-    
-    
 CREATE TABLE Reviews (
 	id varchar(36) not null unique,
 	submitted_id varchar(36) not null,
@@ -50,6 +47,8 @@ CREATE TABLE Reviews (
     FOREIGN KEY (submitted_id) REFERENCES Users(id),
     FOREIGN KEY (target_id) REFERENCES Users(id)
     );	
+    
+
     
 CREATE TABLE Trainers (
 	id varchar (36) not null unique,
@@ -137,12 +136,20 @@ INSERT INTO languages(id,language_name,active) VALUES ('l3','Spanish',1);
 INSERT INTO Companies(id,c_name,credit_card_number,active) VALUES ('c1','FitnessCenter','FC03',1);
 
 INSERT INTO Users(id,phone_number,address,first_name,last_name,password,email,credit_card_number,main_language,role,timezone_id) VALUES ('u1','555333','Jovana Stojana','Kraljevic','Marko','jakasifra','jaka@jaka.com','cc01','l1','ADMIN','Europe/Budapest');
+INSERT INTO Users(id,phone_number,address,first_name,last_name,password,email,credit_card_number,main_language,role,timezone_id) VALUES ('u2','333333','Jovana Bojana','Trainer','Trainer','trainer','trainer@trainer.com','cc01','l1','TRAINER','Europe/Budapest');
+INSERT INTO Users(id,phone_number,address,first_name,last_name,password,email,credit_card_number,main_language,role,timezone_id) VALUES ('u3','666333','Jovana Marka','Client','Client','client','client@client.com','cc01','l1','CLIENT','Europe/Budapest');
+
+INSERT INTO UsersLanguages(user_id,language_id) VALUES ('u3','l1');
+INSERT INTO UsersLanguages(user_id,language_id) VALUES ('u3','l2');
+INSERT INTO UsersLanguages(user_id,language_id) VALUES ('u3','l3');
+
+INSERT INTO reviews(id,submitted_id,target_id,rating,txt,active) VALUES ('r1','u3','u2',4,'Odlican trener',1);
 
 
 
-INSERT INTO UsersLanguages(user_id,language_id) VALUES ('u1','l1');
-INSERT INTO UsersLanguages(user_id,language_id) VALUES ('u1','l2');
-INSERT INTO UsersLanguages(user_id,language_id) VALUES ('u1','l3');
+
+
+
 
 
 
