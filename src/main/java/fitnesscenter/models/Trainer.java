@@ -1,7 +1,6 @@
 package fitnesscenter.models;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class Trainer {
 	
@@ -10,10 +9,9 @@ public class Trainer {
 	private String certificate;
 	private String vocation;
 	private boolean accepted;
-	private List<TrainingSession> trainingSessionList;
 	
 	public Trainer() {
-		this.trainingSessionList = new ArrayList<TrainingSession>();
+		
 	}
 
 	public User getUser() {
@@ -56,13 +54,8 @@ public class Trainer {
 		this.accepted = accepted;
 	}
 
-	public List<TrainingSession> getTrainingSessionList() {
-		return trainingSessionList;
-	}
 
-	public void setTrainingSessionList(List<TrainingSession> trainingSessionList) {
-		this.trainingSessionList = trainingSessionList;
-	}
+	
 	
 	
 	
