@@ -1,14 +1,17 @@
 package fitnesscenter.service;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import fitnesscenter.interfaces.repository.IUserRepository;
 import fitnesscenter.interfaces.service.ILanguageService;
 import fitnesscenter.interfaces.service.IUserService;
 import fitnesscenter.models.User;
 
+@Service
 public class UserService implements IUserService{
 
 	@Autowired
@@ -44,6 +47,7 @@ public class UserService implements IUserService{
 
 	@Override
 	public void save(User user, String mainLangId, List<String> allLangIds) {
+		user.setId(UUID.randomUUID().toString());
 		user.setMainLanguage(langServ.findOneById(mainLangId));
 		user.setAllLanguages(langServ.findAllFromList(allLangIds));
 		userRepo.save(user);
