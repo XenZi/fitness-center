@@ -86,7 +86,7 @@ public class UserRepository implements IUserRepository {
 
 	@Override
 	public User findOneByEmailAndPassword(String email, String password) {
-		String sql = "SELECT id,phone_number,address,first_name,last_name,password,email,credit_card_number,main_language,role,timezone_id FROM users WHERE active=1 AND email=? AND password=?"; 
+		String sql = "SELECT id,phone_number,address,first_name,last_name,password,email,credit_card_number,main_language,role,timezone_id FROM users WHERE active=1 AND email=? AND password=? ;"; 
 		return db.queryForObject(sql, new RowMap(),email,password);
 	}
 
@@ -104,7 +104,7 @@ public class UserRepository implements IUserRepository {
 
 	@Override
 	public void update(User user) {
-		String sql = "UPDATE Users SET phone_number=? ,address,first_name=?,last_name=?,password=?,email=?,credit_card_number=?,main_language=?,role=?,timezone_id=? WHERE id=?";
+		String sql = "UPDATE Users SET phone_number=? ,address=?,first_name=?,last_name=?,password=?,email=?,credit_card_number=?,main_language=?,role=?,timezone_id=? WHERE id=?;";
 		db.update(sql, user.getPhoneNumber(),user.getAddress(),user.getFirstName(),user.getLastName(),user.getPassword(),user.getEmail(),user.getCcNumber(),user.getMainLanguage(),user.getRole(),user.getTimezone(), user.getId());
 	}
 
