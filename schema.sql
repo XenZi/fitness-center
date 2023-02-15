@@ -59,6 +59,8 @@ CREATE TABLE Trainers (
     FOREIGN KEY (id) REFERENCES Users(id)
     );
     
+
+    
 CREATE TABLE WatchData (
 	id varchar(36) not null unique,
     heart_rate varchar(100) not null,
@@ -144,6 +146,8 @@ INSERT INTO UsersLanguages(user_id,language_id) VALUES ('u3','l2');
 INSERT INTO UsersLanguages(user_id,language_id) VALUES ('u3','l3');
 
 INSERT INTO reviews(id,submitted_id,target_id,rating,txt,active) VALUES ('r1','u3','u2',4,'Odlican trener',1);
+
+INSERT INTO Trainers (id,diploma,certificate,vocation,accepted) VALUES ('u2',1,'Diplomirani Profesor','Profesor',1);
 
 
 
