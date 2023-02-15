@@ -11,6 +11,11 @@ import org.springframework.stereotype.Repository;
 
 import fitnesscenter.interfaces.repository.ICompanyRepository;
 import fitnesscenter.models.Company;
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 41da6c49379391520eaab3f74e4cdb1251a9b38a
 
 @Repository
 public class CompanyRepository implements ICompanyRepository {

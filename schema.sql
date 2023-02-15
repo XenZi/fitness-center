@@ -66,7 +66,6 @@ CREATE TABLE WatchData (
     calories float not null,
     PRIMARY KEY (id)
     );
-
     
     
     
@@ -137,7 +136,8 @@ INSERT INTO languages(id,language_name,active) VALUES ('l3','Spanish',1);
 
 INSERT INTO Companies(id,c_name,credit_card_number,active) VALUES ('c1','FitnessCenter','FC03',1);
 
-INSERT INTO Users(id,phone_number,address,first_name,last_name,password,email,credit_card_number,main_language,role,timezone_id) VALUES ('u1','555333','Jovana Stojana','Kraljevic','Marko','jakasifra','jaka@jaka.com','cc01','l1','ADMIN','TZONE');
+INSERT INTO Users(id,phone_number,address,first_name,last_name,password,email,credit_card_number,main_language,role,timezone_id) VALUES ('u1','555333','Jovana Stojana','Kraljevic','Marko','jakasifra','jaka@jaka.com','cc01','l1','ADMIN','Europe/Budapest');
+
 
 
 INSERT INTO UsersLanguages(user_id,language_id) VALUES ('u1','l1');
