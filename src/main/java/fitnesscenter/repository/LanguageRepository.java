@@ -70,7 +70,7 @@ public class LanguageRepository implements ILanguageRepository {
 
 	@Override
 	public void update(Language language) {
-		String sql = "UPDATE Languages SET language_name=? WHERE id=?";
+		String sql = "UPDATE Languages SET language_name=? WHERE id=? ;";
 		db.update(sql, language.getLanguageName(), language.getId());
 	}
 
