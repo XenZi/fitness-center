@@ -99,7 +99,7 @@ public class UserRepository implements IUserRepository {
 	@Override
 	public void save(User user) {
 		String sql = "INSERT INTO Users(id,phone_number,address,first_name,last_name,password,email,credit_card_number,main_language,role,timezone_id,active) VALUES (?,?,?,?,?,?,?,?,?,?,?,?);";
-		db.update(sql, user.getId(),user.getPhoneNumber(),user.getAddress(),user.getFirstName(),user.getLastName(),user.getPassword(),user.getEmail(),user.getCcNumber(),user.getMainLanguage(),user.getRole(),user.getTimezone(),true);
+		db.update(sql, user.getId(),user.getPhoneNumber(),user.getAddress(),user.getFirstName(),user.getLastName(),user.getPassword(),user.getEmail(),user.getCcNumber(),user.getMainLanguage(),user.getRole(),user.getTimezone().getID(),true);
 		for(int i=0;i<user.getAllLanguages().size();i++) {
 			connectLanguageUser(user.getAllLanguages().get(i).getId(),user.getId());
 		}
@@ -108,7 +108,7 @@ public class UserRepository implements IUserRepository {
 	@Override
 	public void update(User user) {
 		String sql = "UPDATE Users SET phone_number=? ,address=?,first_name=?,last_name=?,password=?,email=?,credit_card_number=?,main_language=?,role=?,timezone_id=? WHERE id=?;";
-		db.update(sql, user.getPhoneNumber(),user.getAddress(),user.getFirstName(),user.getLastName(),user.getPassword(),user.getEmail(),user.getCcNumber(),user.getMainLanguage(),user.getRole(),user.getTimezone(), user.getId());
+		db.update(sql, user.getPhoneNumber(),user.getAddress(),user.getFirstName(),user.getLastName(),user.getPassword(),user.getEmail(),user.getCcNumber(),user.getMainLanguage(),user.getRole(),user.getTimezone().getID(), user.getId());
 		disconnectLanguageUser(user.getId());
 		
 		for(int i=0;i<user.getAllLanguages().size();i++) {

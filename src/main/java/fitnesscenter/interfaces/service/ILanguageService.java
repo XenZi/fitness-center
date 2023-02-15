@@ -12,6 +12,8 @@ public interface ILanguageService {
 	
 	public List<Language>findAllActive();
 	
+	public List<Language>findAllFromList(List<String> languageList);
+	
 	public Language findOneById(String id);
 	
 	public void save(Language language);

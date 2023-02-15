@@ -1,5 +1,6 @@
 package fitnesscenter.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -33,6 +34,15 @@ public class LanguageService implements ILanguageService{
 	}
 
 	@Override
+	public List<Language> findAllFromList(List<String> languageList) {
+		List<Language> langList = new ArrayList<Language>();
+		for (String langId : languageList) {
+			langList.add(findOneById(langId));
+		}
+		return langList;
+	}
+
+	@Override
 	public Language findOneById(String id) {
 		return repo.findOneById(id);
 	}
@@ -52,6 +62,7 @@ public class LanguageService implements ILanguageService{
 	public void delete(String id) {
 		repo.delete(id);
 	}
+
 	
 	
 	
