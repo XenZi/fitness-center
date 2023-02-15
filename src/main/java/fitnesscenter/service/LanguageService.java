@@ -19,31 +19,28 @@ public class LanguageService implements ILanguageService{
 
 	@Override
 	public List<Language> findAll() {
-		repo.findAll();
-		return null;
+		return repo.findAll();
 	}
 
 	@Override
 	public List<Language> findAllForUser(String id) {
-		repo.findAllForUser(id);
-		return null;
+		return repo.findAllForUser(id);
 	}
 
 	@Override
 	public List<Language> findAllActive() {
-		repo.findAllActive();
-		return null;
+		return repo.findAllActive();
 	}
 
 	@Override
 	public Language findOneById(String id) {
-		repo.findOneById(id);
-		return null;
+		return repo.findOneById(id);
 	}
 
 	@Override
 	public void save(Language language) {
 		language.setId(UUID.randomUUID().toString());
+		repo.save(language);
 	}
 
 	@Override
