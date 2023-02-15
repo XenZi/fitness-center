@@ -11,8 +11,8 @@ import org.springframework.stereotype.Repository;
 
 import fitnesscenter.interfaces.repository.ICompanyRepository;
 import fitnesscenter.models.Company;
-import fitnesscenter.models.Language;
-import fitnesscenter.repository.LanguageRepository.RowMap;
+
+
 
 @Repository
 public class CompanyRepository implements ICompanyRepository {
