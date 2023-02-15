@@ -77,23 +77,30 @@ CREATE TABLE ClientApplicationData (
 	PRIMARY KEY(id)
     );
     
+
+    
 CREATE TABLE Goals (
 	application_id varchar(36) not null unique,
     goal varchar(20) not null,
     FOREIGN KEY (application_id) REFERENCES ClientApplicationData (id)
     );
+    
+
 
 CREATE TABLE Equipment (
 	application_id varchar(36) not null unique,
     equipment varchar(20) not null,
     FOREIGN KEY (application_id) REFERENCES ClientApplicationData (id)
 	);
+
     
 CREATE TABLE HealthConditions (
 	application_id varchar(36) not null unique,
     h_condition varchar(20) not null,
     FOREIGN KEY (application_id) REFERENCES ClientApplicationData (id)
     );
+    
+
         
 CREATE TABLE TrainingSession (
 	id varchar(36) not null unique,
@@ -148,6 +155,16 @@ INSERT INTO UsersLanguages(user_id,language_id) VALUES ('u3','l3');
 INSERT INTO reviews(id,submitted_id,target_id,rating,txt,active) VALUES ('r1','u3','u2',4,'Odlican trener',1);
 
 INSERT INTO Trainers (id,diploma,certificate,vocation,accepted) VALUES ('u2',1,'Diplomirani Profesor','Profesor',1);
+
+INSERT INTO ClientApplicationData(id,height,weight) VALUES ('cc1',183,70);
+
+INSERT INTO HealthConditions(application_id,h_condition) VALUES ('cc1','HEART');
+
+INSERT INTO equipment(application_id,equipment) VALUES ('cc1','DUMBELLS');
+
+INSERT INTO goals(application_id,goal) VALUES ('cc1','CONDITIONING');
+
+
 
 
 
