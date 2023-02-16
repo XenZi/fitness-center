@@ -66,6 +66,8 @@ CREATE TABLE WatchData (
     PRIMARY KEY (id)
     );
     
+   
+
     
     
 CREATE TABLE ClientApplicationData (
@@ -118,6 +120,8 @@ CREATE TABLE TrainingSession (
     FOREIGN KEY (watch_id) REFERENCES WatchData(id)
     );
     
+
+    
 CREATE TABLE Billing (
 	id varchar(36) not null unique,
 	trainer_id varchar(36) not null,
@@ -166,6 +170,12 @@ INSERT INTO equipment(application_id,equipment) VALUES ('cc1','DUMBELLS');
 INSERT INTO goals(application_id,goal) VALUES ('cc1','CONDITIONING');
 
 INSERT INTO billing(id,trainer_id,client_id,price,date_of) VALUES ('b1','u2','u3',20,curdate());
+
+INSERT INTO WatchData(id,heart_rate,calories) VALUES ('wd1','56,78,90,122,133,144', 266);
+
+INSERT INTO TrainingSession(id,start_time,duration,status,trainer_id,client_id,application_id,watch_id,price,active) VALUES ('ts1',now(),60,'RESERVED','u2','u3','cc1','wd1',20,1);
+
+
 
 
 
