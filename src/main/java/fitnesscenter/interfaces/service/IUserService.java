@@ -17,11 +17,12 @@ public interface IUserService {
 	
 	public User findOneById(String id);
 	
-	void save(User user, String mainLangId, List<String> allLangIds, String timeZoneId);
+	void save(User user, String mainLangId, List<String> allLangIds, String timeZoneId, String role);
 	
 	void update(User user, String mainLangId, List<String> allLangIds);
 	
 	public void delete(String id);
+
 
 
 

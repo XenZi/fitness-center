@@ -7,6 +7,7 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import fitnesscenter.enums.ERole;
 import fitnesscenter.interfaces.repository.IUserRepository;
 import fitnesscenter.interfaces.service.ILanguageService;
 import fitnesscenter.interfaces.service.IUserService;
@@ -47,7 +48,8 @@ public class UserService implements IUserService{
 	}
 
 	@Override
-	public void save(User user, String mainLangId, List<String> allLangIds, String timeZoneId) {
+	public void save(User user, String mainLangId, List<String> allLangIds, String timeZoneId, String role) {
+		user.setRole(ERole.valueOf(role));
 		user.setTimezone(TimeZone.getTimeZone(timeZoneId));
 		user.setId(UUID.randomUUID().toString());
 		user.setMainLanguage(langServ.findOneById(mainLangId));
