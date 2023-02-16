@@ -15,6 +15,7 @@ public interface ITrainingSessionService {
 	public List<TrainingSession> findTrainerFreeSessions(String trainerId);
 	
 	public List<TrainingSession> findClientBookedSessions(String clientId);
+	public List<TrainingSession> findTrainerReservedSessions(String trainerId);
 
 	public void save(TrainingSession traSes, String trainerId);
 	

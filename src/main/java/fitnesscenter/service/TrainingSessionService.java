@@ -14,7 +14,9 @@ import fitnesscenter.models.ClientApplicationData;
 import fitnesscenter.models.TrainingSession;
 import fitnesscenter.models.User;
 import fitnesscenter.models.WatchData;
+import org.springframework.stereotype.Service;
 
+@Service
 public class TrainingSessionService implements ITrainingSessionService{
 	
 	@Autowired
@@ -42,6 +44,11 @@ public class TrainingSessionService implements ITrainingSessionService{
 	@Override
 	public List<TrainingSession> findTrainerFreeSessions(String trainerId) {
 		return repo.findAllByClientAndStatus(trainerId, "FREE");
+	}
+
+	@Override
+	public List<TrainingSession> findTrainerReservedSessions(String trainerId) {
+		return repo.findAllByUserAndStatus("trainer_id", trainerId, "RESERVED");
 	}
 
 	@Override
