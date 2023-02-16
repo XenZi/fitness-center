@@ -102,8 +102,8 @@ public class TrainingSessionRepository implements ITrainingSessionRepository {
 
 	@Override
 	public void freeSession(TrainingSession trainingSession) {
-		String sql = "UPDATE TrainingSession SET client_id=?, application_id=? WHERE id=?;";
-		db.update(sql,null,null,trainingSession.getId());
+		String sql = "UPDATE TrainingSession SET client_id=?, application_id=?, status=? WHERE id=?;";
+		db.update(sql,null,null,EStatus.FREE.toString(),trainingSession.getId());
 	}
 
 	@Override
