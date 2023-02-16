@@ -1,5 +1,7 @@
 package fitnesscenter.models;
 
+import java.time.LocalDate;
+
 public class Billing {
 
 	private String id;
@@ -7,6 +9,8 @@ public class Billing {
 	private User client;
 	private String ccNumber;
 	private float price;
+	private LocalDate date;
+	
 	
 	public Billing() {
 	}
@@ -50,6 +54,16 @@ public class Billing {
 	public void setPrice(float price) {
 		this.price = price;
 	}
+
+	public LocalDate getDate() {
+		return date;
+	}
+
+	public void setDate(LocalDate date) {
+		this.date = date;
+	}
+	
+	
 	
 	
 }
