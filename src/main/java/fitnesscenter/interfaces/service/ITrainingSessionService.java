@@ -28,7 +28,7 @@ public interface ITrainingSessionService {
 	
 	public void update(TrainingSession traSes);
 
-	List<TrainingSession> findClientReservedSessions(String trainerId);
+	List<TrainingSession> findTrainerReservedSessions(String trainerId);
 
 	List<TrainingSession> findClientBookedSessions(String clientId);
 
