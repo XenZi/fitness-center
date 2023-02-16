@@ -108,7 +108,7 @@ public class UserRepository implements IUserRepository {
 	@Override
 	public void update(User user) {
 		String sql = "UPDATE Users SET phone_number=? ,address=?,first_name=?,last_name=?,password=?,email=?,credit_card_number=?,main_language=?,role=?,timezone_id=? WHERE id=?;";
-		db.update(sql, user.getPhoneNumber(),user.getAddress(),user.getFirstName(),user.getLastName(),user.getPassword(),user.getEmail(),user.getCcNumber(),user.getMainLanguage(),user.getRole(),user.getTimezone().getID(), user.getId());
+		db.update(sql, user.getPhoneNumber(),user.getAddress(),user.getFirstName(),user.getLastName(),user.getPassword(),user.getEmail(),user.getCcNumber(),user.getMainLanguage(),user.getRole().toString(),user.getTimezone().getID(), user.getId());
 		disconnectLanguageUser(user.getId());
 		
 		for(int i=0;i<user.getAllLanguages().size();i++) {
