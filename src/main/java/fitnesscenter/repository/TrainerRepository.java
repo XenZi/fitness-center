@@ -77,11 +77,11 @@ public class TrainerRepository implements ITrainerRepository {
 
 	@Override
 	public void save(Trainer trainer) {
-
+		System.out.println(trainer.isDiploma());
 		String sql = "INSERT INTO Trainers (id,diploma,certificate,vocation,accepted) VALUES (?,?,?,?,?);";
-		db.update(sql, trainer.getUser().getId(),trainer.isDiploma(),trainer.getCertificate(),trainer.getVocation(), false);
 		userRepo.save(trainer.getUser());
-	
+		db.update(sql, trainer.getUser().getId(),trainer.isDiploma(),trainer.getCertificate(),trainer.getVocation(), false);
+
 	}
 
 	@Override

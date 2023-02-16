@@ -173,6 +173,16 @@
                             </div>
                             <div class="form-floating mb-3">
                                 <input
+                                        type="password"
+                                        class="form-control"
+                                        id="password"
+                                        name="password"
+                                        placeholder="Password"
+                                />
+                                <label for="password">Your passwords</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input
                                         type="text"
                                         class="form-control"
                                         id="phoneNumber"
@@ -204,27 +214,28 @@
                             <div class="form-floating mb-3">
                                 <select
                                         class="form-select"
-                                        id="mainLanguage"
+                                        id="mainLanguageID"
                                         aria-label="Floating label select example"
-                                        name="mainLanguage"
+                                        name="mainLanguageID"
                                 >
                                     <option selected>Open this select menu</option>
+                                    <option th:each="lang : ${languages}" th:value="${lang.getId()}" th:text="${lang.getLanguageName()}"></option>
                                 </select>
-                                <label for="mainLanguage">Select your main language</label>
+                                <label for="mainLanguageID">Select your main language</label>
                             </div>
                             <div class="form-floating mb-3">
                                 <select
                                         class="form-select h-100"
                                         size="5"
-                                        name="multiLanguages"
+                                        name="multiLanguageIDs"
                                         multiple
                                         aria-label="multiple select example"
-                                        id="multiLanguages"
+                                        id="multiLanguageIDs"
                                 >
                                         <option selected>Open this select menu</option>
                                         <option th:each="lang : ${languages}" th:value="${lang.getId()}" th:text="${lang.getLanguageName()}"></option>
                                 </select>
-                                <label for="multiLanguages"
+                                <label for="multiLanguageIDs"
                                 >Choose other languages that you know</label
                                 >
                             </div>

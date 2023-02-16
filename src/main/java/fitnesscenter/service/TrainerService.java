@@ -45,14 +45,16 @@ public class TrainerService implements ITrainerService{
 	public void save(User user, String mainLangId, List<String> allLangIds, ERole role, String certificate, String diploma, String vocation) {
 		Trainer trainer = new Trainer();
 		user.setId(UUID.randomUUID().toString());
+		user.setMainLanguage(langServ.findOneById(mainLangId));
+		user.setAllLanguages(langServ.findAllFromList(allLangIds));
 		trainer.setCertificate(certificate);
-		trainer.setDiploma(diploma.equals("on") == true ? true : false);
+		trainer.setDiploma(diploma.equals("on") == true);
+		trainer.setUser(user);
 		trainer.setVocation(vocation);
 		trainer.getUser().setRole(role);
 		trainer.getUser().setMainLanguage(langServ.findOneById(mainLangId));
 		trainer.getUser().setAllLanguages(langServ.findAllFromList(allLangIds));
 		repo.save(trainer);
-		
 	}
 
 	@Override
