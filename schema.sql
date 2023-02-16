@@ -128,6 +128,8 @@ CREATE TABLE Billing (
 	FOREIGN KEY (trainer_id) REFERENCES Users(id),
     FOREIGN KEY (client_id) REFERENCES Users(id)
     );
+    
+
         
 CREATE TABLE Companies (
 	id varchar(36) not null unique,
@@ -162,6 +164,10 @@ INSERT INTO HealthConditions(application_id,h_condition) VALUES ('cc1','HEART');
 INSERT INTO equipment(application_id,equipment) VALUES ('cc1','DUMBELLS');
 
 INSERT INTO goals(application_id,goal) VALUES ('cc1','CONDITIONING');
+
+INSERT INTO billing(id,trainer_id,client_id,price,date_of) VALUES ('b1','u2','u3',20,curdate());
+
+
 
 
 
