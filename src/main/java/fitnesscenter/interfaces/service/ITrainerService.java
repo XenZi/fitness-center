@@ -2,21 +2,24 @@ package fitnesscenter.interfaces.service;
 
 import java.util.List;
 
+import fitnesscenter.enums.ERole;
 import fitnesscenter.models.Trainer;
 
 public interface ITrainerService {
 	
-
 	public List<Trainer>findAll();
-		
+	
 	public List<Trainer>findAllAccepted();
 	
 	public Trainer findOneById(String id);
 	
-	public void save(Trainer trainer);
+	void save(Trainer trainer, String mainLangId, List<String> allLangIds, ERole role);
 	
-	public void update(Trainer trainer);	
+	void update(Trainer trainer, String mainLangId, List<String> allLangIds);
 
 	public void approveTrainer(String id);
+
+
+	
 
 }
