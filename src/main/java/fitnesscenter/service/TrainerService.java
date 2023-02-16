@@ -45,6 +45,7 @@ public class TrainerService implements ITrainerService{
 	public void save(User user, String mainLangId, List<String> allLangIds, ERole role, String certificate, String diploma, String vocation) {
 		Trainer trainer = new Trainer();
 		user.setId(UUID.randomUUID().toString());
+		trainer.setUser(user);
 		trainer.setCertificate(certificate);
 		trainer.setDiploma(diploma.equals("on") == true ? true : false);
 		trainer.setVocation(vocation);
