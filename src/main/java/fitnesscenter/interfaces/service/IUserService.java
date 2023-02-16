@@ -2,6 +2,7 @@ package fitnesscenter.interfaces.service;
 
 import java.util.List;
 
+import fitnesscenter.enums.ERole;
 import fitnesscenter.models.User;
 
 public interface IUserService {
@@ -17,7 +18,7 @@ public interface IUserService {
 	
 	public User findOneById(String id);
 	
-	void save(User user, String mainLangId, List<String> allLangIds, String timeZoneId, String role);
+	void save(User user, String mainLangId, List<String> allLangIds, ERole role);
 	
 	void update(User user, String mainLangId, List<String> allLangIds);
 	

@@ -48,9 +48,8 @@ public class UserService implements IUserService{
 	}
 
 	@Override
-	public void save(User user, String mainLangId, List<String> allLangIds, String timeZoneId, String role) {
-		user.setRole(ERole.valueOf(role));
-		user.setTimezone(TimeZone.getTimeZone(timeZoneId));
+	public void save(User user, String mainLangId, List<String> allLangIds, ERole role) {
+		user.setRole(role);
 		user.setId(UUID.randomUUID().toString());
 		user.setMainLanguage(langServ.findOneById(mainLangId));
 		user.setAllLanguages(langServ.findAllFromList(allLangIds));

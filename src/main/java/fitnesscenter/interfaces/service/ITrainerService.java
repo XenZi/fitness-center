@@ -4,6 +4,7 @@ import java.util.List;
 
 import fitnesscenter.enums.ERole;
 import fitnesscenter.models.Trainer;
+import fitnesscenter.models.User;
 
 public interface ITrainerService {
 	
@@ -13,7 +14,7 @@ public interface ITrainerService {
 	
 	public Trainer findOneById(String id);
 	
-	void save(Trainer trainer, String mainLangId, List<String> allLangIds, ERole role);
+	void save(User user, String mainLangId, List<String> allLangIds, ERole role, String certificate, String diploma, String vocation);
 	
 	void update(Trainer trainer, String mainLangId, List<String> allLangIds);
 

@@ -1,7 +1,9 @@
 package fitnesscenter.service;
 
 import java.util.List;
+import java.util.UUID;
 
+import fitnesscenter.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,7 +42,12 @@ public class TrainerService implements ITrainerService{
 	}
 
 	@Override
-	public void save(Trainer trainer, String mainLangId, List<String> allLangIds, ERole role) {
+	public void save(User user, String mainLangId, List<String> allLangIds, ERole role, String certificate, String diploma, String vocation) {
+		Trainer trainer = new Trainer();
+		user.setId(UUID.randomUUID().toString());
+		trainer.setCertificate(certificate);
+		trainer.setDiploma(diploma.equals("on") == true ? true : false);
+		trainer.setVocation(vocation);
 		trainer.getUser().setRole(role);
 		trainer.getUser().setMainLanguage(langServ.findOneById(mainLangId));
 		trainer.getUser().setAllLanguages(langServ.findAllFromList(allLangIds));

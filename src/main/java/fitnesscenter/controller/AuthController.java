@@ -1,7 +1,9 @@
 package fitnesscenter.controller;
 
 
+import fitnesscenter.enums.ERole;
 import fitnesscenter.interfaces.service.ILanguageService;
+import fitnesscenter.interfaces.service.ITrainerService;
 import fitnesscenter.interfaces.service.IUserService;
 import fitnesscenter.models.Trainer;
 import fitnesscenter.models.User;
@@ -19,6 +21,8 @@ public class AuthController {
     private ILanguageService languageService;
     @Autowired
     private IUserService userService;
+    @Autowired
+    private ITrainerService trainerService;
 
     @GetMapping("/register")
     public String getRegister(Model model) {
@@ -28,17 +32,17 @@ public class AuthController {
 
     @PostMapping("/register")
     public void postRegister(@ModelAttribute User user, @RequestParam String mainLanguageID, @RequestParam(required = false) List<String> multiLanguageIDs) {
-        userService.save(user, mainLanguageID, multiLanguageIDs);
+        userService.save(user, mainLanguageID, multiLanguageIDs, ERole.CLIENT);
     }
 
     @PostMapping("/register-trainer")
-    public void postRegisterTrainer(@ModelAttribute User user) {
-
+    public void postRegisterTrainer(@ModelAttribute User user, @RequestParam String mainLanguageID, @RequestParam(required = false) List<String> multiLanguageIDs, @RequestParam String certificate, @RequestParam(required = false) String diploma, @RequestParam String vocation) {
+        trainerService.save(user, mainLanguageID, multiLanguageIDs, ERole.TRAINER, certificate, diploma, vocation);
     }
 
     @GetMapping("/login")
     public String getLogin() {
-        return "index";
+        return "login";
     }
 
     @PostMapping("/login")
