@@ -12,6 +12,7 @@ public class Billing {
 	private LocalDate date;
 	
 	
+	
 	public Billing() {
 	}
 
