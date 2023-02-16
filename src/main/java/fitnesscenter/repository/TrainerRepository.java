@@ -80,6 +80,7 @@ public class TrainerRepository implements ITrainerRepository {
 
 		String sql = "INSERT INTO Trainers (id,diploma,certificate,vocation,accepted) VALUES (?,?,?,?,?);";
 		db.update(sql, trainer.getUser().getId(),trainer.isDiploma(),trainer.getCertificate(),trainer.getVocation(), false);
+		userRepo.save(trainer.getUser());
 	
 	}
 
@@ -88,6 +89,7 @@ public class TrainerRepository implements ITrainerRepository {
 
 		String sql = "UPDATE trainers SET diploma=?, certificate=?, vocation=? WHERE id=?;";
 		db.update(sql, trainer.isDiploma(),trainer.getCertificate(),trainer.getVocation(), trainer.getUser().getId());
+		userRepo.update(trainer.getUser());
 	
 	}
 	

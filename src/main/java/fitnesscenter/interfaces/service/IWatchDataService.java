@@ -1,11 +1,11 @@
-package fitnesscenter.interfaces.repository;
+package fitnesscenter.interfaces.service;
 
 import java.util.List;
 
 import fitnesscenter.models.WatchData;
 
-public interface IWatchDataRepository {
-	
+public interface IWatchDataService {
+
 	public List<WatchData> findAll();
 	
 	public List<WatchData> findAllForUser(String userId);
@@ -14,5 +14,4 @@ public interface IWatchDataRepository {
 	
 	public void save(WatchData watchData);	
 	
-
 }

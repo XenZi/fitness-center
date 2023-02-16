@@ -14,4 +14,6 @@ public interface IClientApplicationDataRepository {
 	
 	public List <ClientApplicationData> findAllForUser(String userId);
 
+	void delete(String appId);
+
 }

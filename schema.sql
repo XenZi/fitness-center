@@ -123,11 +123,12 @@ CREATE TABLE Billing (
 	trainer_id varchar(36) not null,
     client_id varchar(36) not null,
     price float,
+    date_of date,
     PRIMARY KEY (id),
 	FOREIGN KEY (trainer_id) REFERENCES Users(id),
     FOREIGN KEY (client_id) REFERENCES Users(id)
     );
-    
+        
 CREATE TABLE Companies (
 	id varchar(36) not null unique,
     c_name varchar(50) not null,
