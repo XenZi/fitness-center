@@ -10,7 +10,6 @@ public interface ITrainingSessionRepository {
 	
 	public TrainingSession findOneById(String id);
 	
-	public List<TrainingSession>findAllByUserAndStatus(String user,String userId, String status);
 	
 	public void save(TrainingSession trainingSession);
 	
@@ -19,5 +18,9 @@ public interface ITrainingSessionRepository {
 	public void delete(String id);
 
 	void freeSession(TrainingSession trainingSession);
+
+	List<TrainingSession> findAllByTrainerAndStatus(String userId, String status);
+
+	List<TrainingSession> findAllByClientAndStatus(String userId, String status);
 
 }
