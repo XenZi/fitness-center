@@ -10,8 +10,8 @@ public class TrainingSession {
 	private LocalDateTime startTime;
 	private int duration;
 	private EStatus status;
-	private Trainer trainer;
-	private Client client;
+	private User trainer;
+	private User client;
 	private ClientApplicationData application;
 	private WatchData watch;
 	private float price;
@@ -61,22 +61,22 @@ public class TrainingSession {
 	}
 
 
-	public Trainer getTrainer() {
+	public User getTrainer() {
 		return trainer;
 	}
 
 
-	public void setTrainer(Trainer trainer) {
+	public void setTrainer(User trainer) {
 		this.trainer = trainer;
 	}
 
 
-	public Client getClient() {
+	public User getClient() {
 		return client;
 	}
 
 
-	public void setClient(Client client) {
+	public void setClient(User client) {
 		this.client = client;
 	}
 
