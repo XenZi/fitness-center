@@ -12,7 +12,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -24,6 +26,7 @@ public class AuthController {
     private IUserService userService;
     @Autowired
     private ITrainerService trainerService;
+
 
     @GetMapping("/register")
     public String getRegister(Model model) {
@@ -48,7 +51,10 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public void postLogin(@RequestParam String email, @RequestParam String password, HttpSession session) {
-
+    public void postLogin(@RequestParam String email, @RequestParam String password, HttpSession session, HttpServletResponse response) throws IOException {
+        User user = userService.findOneByEmailAndPassword(email, password);
+        if (user == null) return;
+        session.setAttribute("account", user);
+        response.sendRedirect("/");
     }
 }

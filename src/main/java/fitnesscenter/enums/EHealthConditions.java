@@ -6,5 +6,4 @@ public enum EHealthConditions {
 	MUSCLES,
 	BONES,
 	ALERGIES
-
 }

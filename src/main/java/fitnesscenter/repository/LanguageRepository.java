@@ -47,7 +47,7 @@ public class LanguageRepository implements ILanguageRepository {
 	public List<Language> findAllForUser(String id) {
 		
 		String sql = "SELECT id,language_name FROM Languages WHERE id in (SELECT language_id FROM userslanguages WHERE user_id = ?);"; 
-		return db.query(sql, new RowMap());		
+		return db.query(sql, new RowMap(), id);
 	}
 
 	@Override
