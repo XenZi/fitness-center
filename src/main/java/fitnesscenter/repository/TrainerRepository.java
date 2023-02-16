@@ -102,9 +102,14 @@ public class TrainerRepository implements ITrainerRepository {
 	@Override
 	public void approveTrainer(String id) {
 		
-		String sql = "UPDATE Languages SET accepted=1 WHERE id=?";
+		String sql = "UPDATE Trainers SET accepted=1 WHERE id=?";
 		db.update(sql, id);
 		
 	}
 
+	@Override
+	public List<Trainer> findAllNotAccepted(){
+		String sql = "SELECT id,diploma,certificate,vocation,accepted FROM trainers WHERE accepted=0;";
+		return db.query(sql, new RowMap());
+	}
 }

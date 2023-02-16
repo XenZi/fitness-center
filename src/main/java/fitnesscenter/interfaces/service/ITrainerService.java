@@ -9,7 +9,7 @@ import fitnesscenter.models.User;
 public interface ITrainerService {
 	
 	public List<Trainer>findAll();
-	
+	public List<Trainer> findAllNotAccepted();
 	public List<Trainer>findAllAccepted();
 	
 	public Trainer findOneById(String id);

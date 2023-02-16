@@ -69,6 +69,11 @@ public class TrainerService implements ITrainerService{
 	public void approveTrainer(String id) {
 		repo.approveTrainer(id);
 	}
+
+	@Override
+	public List<Trainer> findAllNotAccepted() {
+		return repo.findAllNotAccepted();
+	}
 	
 	
 }

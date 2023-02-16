@@ -82,13 +82,13 @@ public class TrainingSessionRepository implements ITrainingSessionRepository {
 
 	@Override
 	public List<TrainingSession> findAllByClientAndStatus(String userId, String status) {
-		String sql = "SELECT id,start_time,duration,status,trainer_id,client_id,application_id,watch_id,price FROM trainingsession WHERE client_id=? AND status=? ;"; 
+		String sql = "SELECT id,start_time,duration,status,trainer_id,client_id,application_id,watch_id,price FROM trainingsession WHERE client_id=? AND status=? AND active = 1;";
 		return db.query(sql, new RowMap(),userId,status);
 	}
 	
 	@Override
 	public List<TrainingSession> findAllByTrainerAndStatus(String userId, String status) {
-		String sql = "SELECT id,start_time,duration,status,trainer_id,client_id,application_id,watch_id,price FROM trainingsession WHERE trainer_id=? AND status=? ;"; 
+		String sql = "SELECT id,start_time,duration,status,trainer_id,client_id,application_id,watch_id,price FROM trainingsession WHERE trainer_id=? AND status=? AND active = 1;";
 		return db.query(sql, new RowMap(),userId,status);
 	}
 
@@ -101,9 +101,9 @@ public class TrainingSessionRepository implements ITrainingSessionRepository {
 
 	@Override
 	public void update(TrainingSession trainingSession) {
-
-		String sql = "UPDATE trainingsession SET start_time=?, duration=?, status=?, trainer_id=?, client_id=?, application_id=?, watch_id=?, price=? WHERE id=? ;";
-		db.update(sql, trainingSession.getStartTime(),trainingSession.getDuration(),trainingSession.getStatus().toString(),trainingSession.getTrainer().getId(),trainingSession.getClient().getId(),trainingSession.getApplication().getId(),trainingSession.getWatch().getId(),trainingSession.getPrice(), trainingSession.getId());
+		cadRepo.save(trainingSession.getApplication());
+		String sql = "UPDATE trainingsession SET start_time=?, duration=?, status=?, trainer_id=?, client_id=?, application_id=?, price=? WHERE id=? ;";
+		db.update(sql, trainingSession.getStartTime(),trainingSession.getDuration(),trainingSession.getStatus().toString(),trainingSession.getTrainer().getId(),trainingSession.getClient().getId(),trainingSession.getApplication().getId(),trainingSession.getPrice(), trainingSession.getId());
 	
 	}
 
@@ -123,7 +123,7 @@ public class TrainingSessionRepository implements ITrainingSessionRepository {
 	
 	@Override
 	public List<TrainingSession> findAllFree(){
-		String sql = "SELECT id,start_time,duration,status,trainer_id,client_id,application_id,watch_id,price FROM trainingsession WHERE status=?;"; 
+		String sql = "SELECT id,start_time,duration,status,trainer_id,client_id,application_id,watch_id,price FROM trainingsession WHERE status=? AND active = 1;";
 		return db.query(sql, new RowMap(),EStatus.FREE.toString());
 	}
 

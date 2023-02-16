@@ -70,6 +70,7 @@ public class TrainingSessionService implements ITrainingSessionService{
 	public void bookTrainingSession(String id, String clientId, ClientApplicationData dataId) {
 		TrainingSession traSes = repo.findOneById(id);
 		traSes.setClient(userServ.findOneById(clientId));
+		dataId.setId(UUID.randomUUID().toString());
 		traSes.setApplication(dataId);
 		traSes.setStatus(EStatus.RESERVED);
 		repo.update(traSes);
