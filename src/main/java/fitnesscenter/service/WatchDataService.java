@@ -1,6 +1,7 @@
 package fitnesscenter.service;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +33,7 @@ public class WatchDataService  implements IWatchDataService{
 
 	@Override
 	public void save(WatchData watchData) {
+		watchData.setId(UUID.randomUUID().toString());
 		watchRepo.save(watchData);
 	}
 	
