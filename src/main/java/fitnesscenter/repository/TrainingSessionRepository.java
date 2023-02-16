@@ -81,7 +81,6 @@ public class TrainingSessionRepository implements ITrainingSessionRepository {
 	}
 
 	@Override
-<<<<<<< HEAD
 	public List<TrainingSession> findAllByClientAndStatus(String userId, String status) {
 		String sql = "SELECT id,start_time,duration,status,trainer_id,client_id,application_id,watch_id,price FROM trainingsession WHERE client_id=? AND status=? ;"; 
 		return db.query(sql, new RowMap(),userId,status);
@@ -91,12 +90,8 @@ public class TrainingSessionRepository implements ITrainingSessionRepository {
 	public List<TrainingSession> findAllByTrainerAndStatus(String userId, String status) {
 		String sql = "SELECT id,start_time,duration,status,trainer_id,client_id,application_id,watch_id,price FROM trainingsession WHERE trainer_id=? AND status=? ;"; 
 		return db.query(sql, new RowMap(),userId,status);
-=======
-	public List<TrainingSession> findAllByUserAndStatus(String user, String userId, String status) {
-		String sql = "SELECT id,start_time,duration,status,trainer_id,client_id,application_id,watch_id,price FROM trainingsession WHERE ? = ? AND status = ? ;";
-		return db.query(sql, new RowMap(),user,userId,status);
->>>>>>> 4dcc55f17542581bf17bb763bcc34f4d4c923fdc
 	}
+
 
 	@Override
 	public void save(TrainingSession trainingSession) {

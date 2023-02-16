@@ -14,8 +14,7 @@ public interface ITrainingSessionService {
 	
 	public List<TrainingSession> findTrainerFreeSessions(String trainerId);
 	
-	public List<TrainingSession> findClientBookedSessions(String clientId);
-	public List<TrainingSession> findTrainerReservedSessions(String trainerId);
+
 
 	public void save(TrainingSession traSes, String trainerId);
 	
@@ -28,5 +27,10 @@ public interface ITrainingSessionService {
 	public void deleteTrainingSession(String id);
 	
 	public void update(TrainingSession traSes);
+
+	List<TrainingSession> findClientReservedSessions(String trainerId);
+
+	List<TrainingSession> findClientBookedSessions(String clientId);
+
 	
 }

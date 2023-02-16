@@ -43,12 +43,12 @@ public class TrainingSessionService implements ITrainingSessionService{
 
 	@Override
 	public List<TrainingSession> findTrainerFreeSessions(String trainerId) {
-		return repo.findAllByClientAndStatus(trainerId, "FREE");
+		return repo.findAllByTrainerAndStatus(trainerId, "FREE");
 	}
 
 	@Override
-	public List<TrainingSession> findTrainerReservedSessions(String trainerId) {
-		return repo.findAllByUserAndStatus("trainer_id", trainerId, "RESERVED");
+	public List<TrainingSession> findClientReservedSessions(String trainerId) {
+		return repo.findAllByClientAndStatus(trainerId, "FREE");
 	}
 
 	@Override
