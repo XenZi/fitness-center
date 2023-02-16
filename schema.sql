@@ -7,8 +7,6 @@ CREATE TABLE Languages (
     PRIMARY KEY (id)
     );
     
-
-
     
 CREATE TABLE Users (
 	id varchar (36) not null unique,

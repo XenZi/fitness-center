@@ -8,6 +8,7 @@ public class Billing {
 	private String ccNumber;
 	private float price;
 	
+	
 	public Billing() {
 	}
 
