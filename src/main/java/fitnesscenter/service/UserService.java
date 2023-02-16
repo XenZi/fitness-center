@@ -1,6 +1,7 @@
 package fitnesscenter.service;
 
 import java.util.List;
+import java.util.TimeZone;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,7 +47,8 @@ public class UserService implements IUserService{
 	}
 
 	@Override
-	public void save(User user, String mainLangId, List<String> allLangIds) {
+	public void save(User user, String mainLangId, List<String> allLangIds, String timeZoneId) {
+		user.setTimezone(TimeZone.getTimeZone(timeZoneId));
 		user.setId(UUID.randomUUID().toString());
 		user.setMainLanguage(langServ.findOneById(mainLangId));
 		user.setAllLanguages(langServ.findAllFromList(allLangIds));
