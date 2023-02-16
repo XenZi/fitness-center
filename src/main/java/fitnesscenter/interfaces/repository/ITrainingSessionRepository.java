@@ -23,4 +23,6 @@ public interface ITrainingSessionRepository {
 
 	List<TrainingSession> findAllByClientAndStatus(String userId, String status);
 
+	List<TrainingSession> findAllFree();
+
 }

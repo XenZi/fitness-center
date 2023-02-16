@@ -95,6 +95,11 @@ public class TrainingSessionService implements ITrainingSessionService{
 	public void update(TrainingSession traSes) {
 		repo.update(traSes);		
 	}
+
+	@Override
+	public List<TrainingSession> findAllFree() {
+		return repo.findAllFree();
+	}
 	
 	
 

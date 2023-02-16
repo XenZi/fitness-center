@@ -120,5 +120,11 @@ public class TrainingSessionRepository implements ITrainingSessionRepository {
 		db.update(sql, id);
 		
 	}
+	
+	@Override
+	public List<TrainingSession> findAllFree(){
+		String sql = "SELECT id,start_time,duration,status,trainer_id,client_id,application_id,watch_id,price FROM trainingsession WHERE status=?;"; 
+		return db.query(sql, new RowMap(),EStatus.FREE.toString());
+	}
 
 }

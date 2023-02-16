@@ -12,6 +12,8 @@ public interface ITrainingSessionService {
 	
 	public TrainingSession findOneById(String id);
 	
+	public List<TrainingSession> findAllFree();
+	
 	public List<TrainingSession> findTrainerFreeSessions(String trainerId);
 	
 
