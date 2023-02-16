@@ -87,6 +87,33 @@ public class ClientApplicationDataRepository implements IClientApplicationDataRe
 		connectApplicationEquipment(clientApplicationData);
 		connectApplicationHealthConditions(clientApplicationData);
 	}
+	
+	@Override
+	public void delete(String appId) {
+		String sql = "DELETE FROM ClientApplicationData WHERE id=?;";
+		db.update(sql, appId);
+		deleteGoals(appId);
+		deleteConditions(appId);
+		deleteEquipment(appId);
+	}
+	
+	private void deleteGoals(String appId) {
+		String sql = "DELETE FROM Goals WHERE application_id=?;";
+		db.update(sql, appId);
+	}
+	
+	private void deleteConditions(String appId) {
+		String sql = "DELETE FROM HealthConditions WHERE application_id=?;";
+		db.update(sql, appId);
+	}
+	
+	private void deleteEquipment(String appId) {
+		String sql = "DELETE FROM Equipment WHERE application_id=?;";
+		db.update(sql, appId);
+	}
+	
+	
+	
 
 	
 	public List<EGoals>findAllApplicationGoals(String appId){
