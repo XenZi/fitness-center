@@ -95,8 +95,8 @@ public class TrainingSessionRepository implements ITrainingSessionRepository {
 
 	@Override
 	public void save(TrainingSession trainingSession) {
-		String sql = "INSERT INTO TrainingSession(id,start_time,duration,status,trainer_id,client_id,application_id,watch_id,price,active) VALUES (?,?,?,?,?,?,?,?,?,?);";
-		db.update(sql, trainingSession.getId(), trainingSession.getStartTime(),trainingSession.getDuration(),trainingSession.getStatus().toString(),trainingSession.getTrainer().getId(),trainingSession.getClient().getId(),trainingSession.getApplication().getId(),trainingSession.getWatch().getId(),trainingSession.getPrice(), true);
+		String sql = "INSERT INTO TrainingSession(id,start_time,duration,status,trainer_id,price,active) VALUES (?,?,?,?,?,?,?);";
+		db.update(sql, trainingSession.getId(), trainingSession.getStartTime(),trainingSession.getDuration(),trainingSession.getStatus().toString(),trainingSession.getTrainer().getId(),trainingSession.getPrice(), true);
 	}
 
 	@Override

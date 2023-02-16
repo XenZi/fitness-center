@@ -62,10 +62,10 @@
         </tr>
         </thead>
         <tbody>
-          <tr th:each="session: ${reservedSessions}">
-            <td th:text="${session.getStartTime()}"></td>
-            <td th:text="${session.getStatus()}"></td>
-            <td th:text="${session.getClient().getFirstName() + ' ' + session.getClient().getLastName()}"></td>
+          <tr th:each="sess: ${reservedSessions}">
+            <td th:text="${sess.getStartTime()}"></td>
+            <td th:text="${sess.getStatus()}"></td>
+            <td th:text="${sess.getClient().getEmail()}"></td>
           </tr>
         </tbody>
       </table>
@@ -83,9 +83,9 @@
         </tr>
         </thead>
         <tbody>
-          <tr th:each="session : ${availableSessions}">
-            <td>2023-01-01</td>
-            <td>RESERVED</td>
+          <tr th:each="sess : ${availableSessions}">
+            <td th:text="${sess.getStartTime()}"></td>
+            <td th:text=""></td>
             <td>IMEPREZIME</td>
           </tr>
         </tbody>
@@ -123,13 +123,14 @@
               ></button>
             </div>
             <div class="modal-body">
-              <form action="">
+              <form action="/training-session/create" method="POST">
+                <input type="hidden" th:value="${session.account.getId()}" name="trainerID">
                 <div class="form-floating mb-3">
                   <input
                           type="datetime-local"
                           class="form-control"
                           id="date"
-                          name="startTime"
+                          name="startingDateTime"
                   />
                   <label for="date">Starting date</label>
                 </div>

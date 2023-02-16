@@ -1,6 +1,7 @@
 package fitnesscenter.service;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -48,7 +49,7 @@ public class TrainingSessionService implements ITrainingSessionService{
 
 	@Override
 	public List<TrainingSession> findTrainerReservedSessions(String trainerId) {
-		return repo.findAllByTrainerAndStatus(trainerId, "FREE");
+		return repo.findAllByTrainerAndStatus(trainerId, "RESERVED");
 	}
 
 	@Override
@@ -60,6 +61,8 @@ public class TrainingSessionService implements ITrainingSessionService{
 	public void save(TrainingSession traSes, String trainerId) {
 		User trainer = userServ.findOneById(trainerId);
 		traSes.setTrainer(trainer);
+		traSes.setStatus(EStatus.FREE);
+		traSes.setId(UUID.randomUUID().toString());
 		repo.save(traSes);
 	}
 

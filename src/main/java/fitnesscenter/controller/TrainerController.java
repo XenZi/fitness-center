@@ -21,10 +21,9 @@ public class TrainerController {
     @GetMapping("")
     public String index(Model model, HttpSession session) {
         User user = (User) session.getAttribute("account");
-        System.out.println(user.getId());
-        System.out.println(trainingSessionService.findTrainerReservedSessions(user.getId()));
+        System.out.println(trainingSessionService.findTrainerReservedSessions(user.getId()).size());
         model.addAttribute("reservedSessions", trainingSessionService.findTrainerReservedSessions(user.getId()));
-        model.addAttribute("availableSessions", trainingSessionService.findTrainerFreeSessions(user.getId()));
+//        model.addAttribute("availableSessions", trainingSessionService.findTrainerFreeSessions(user.getId()));
         return "trainer/index";
     }
 }
