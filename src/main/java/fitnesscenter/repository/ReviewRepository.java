@@ -64,14 +64,25 @@ public class ReviewRepository implements IReviewRepository {
 
 	@Override
 	public List<Review> findAllForTarget(String id) {
-		String sql = "SELECT id,submitted_id,target_id,rating,txt FROM reviews WHERE active=1 AND target_id=?;"; 
-		return db.query(sql, new RowMap(),id);
+		try {
+			String sql = "SELECT id,submitted_id,target_id,rating,txt FROM reviews WHERE active=1 AND target_id=?;"; 
+			return db.query(sql, new RowMap(),id);
+			
+		} catch (Exception e) {
+			return null;
+		}
+		
 	}
 
 	@Override
 	public List<Review> findAllForSubmitted(String id) {
-		String sql = "SELECT id,submitted_id,target_id,rating,txt FROM reviews WHERE active=1 AND submitted_id=?;"; 
-		return db.query(sql, new RowMap(),id);
+		try {
+			
+			String sql = "SELECT id,submitted_id,target_id,rating,txt FROM reviews WHERE active=1 AND submitted_id=?;"; 
+			return db.query(sql, new RowMap(),id);
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 	@Override

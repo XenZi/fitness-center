@@ -69,9 +69,14 @@ public class TrainerRepository implements ITrainerRepository {
 
 	@Override
 	public Trainer findOneById(String id) {
-
-		String sql = "SELECT id,diploma,certificate,vocation,accepted FROM trainers WHERE id=?;"; 
-		return db.queryForObject(sql, new RowMap(), id);
+		try {
+			String sql = "SELECT id,diploma,certificate,vocation,accepted FROM trainers WHERE id=?;"; 
+			return db.queryForObject(sql, new RowMap(), id);
+			
+		} catch (Exception e) {
+			return null;
+		}
+		
 	
 	}
 

@@ -46,14 +46,25 @@ public class WatchDataRepository implements IWatchDataRepository{
 
 	@Override
 	public List<WatchData> findAllForUser(String userId) {
-		String sql = "SELECT id, heart_rate, calories FROM WatchData WHERE id in (SELECT watch_id FROM TrainingSession WHERE client_id=?);";
-		return db.query(sql, new RowMap(), userId);
+		try {
+			
+			String sql = "SELECT id, heart_rate, calories FROM WatchData WHERE id in (SELECT watch_id FROM TrainingSession WHERE client_id=?);";
+			return db.query(sql, new RowMap(), userId);
+		} catch (Exception e) {
+			return null;
+		}
+		
 	}
 
 	@Override
 	public WatchData findOneById(String id) {
-		String sql = "SELECT id, heart_rate, calories FROM WatchData WHERE id=?;";
-		return db.queryForObject(sql, new RowMap(), id);
+		try {
+			String sql = "SELECT id, heart_rate, calories FROM WatchData WHERE id=?;";
+			return db.queryForObject(sql, new RowMap(), id);
+			
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 	@Override

@@ -63,14 +63,25 @@ public class BillingRepository implements IBillingRepository {
 
 	@Override
 	public Billing findOne(String id) {
-		String sql = "SELECT id,trainer_id,client_id,price,date_of FROM billing WHERE id=?;"; 
-		return db.queryForObject(sql, new RowMap(), id);
+		try {
+			
+			String sql = "SELECT id,trainer_id,client_id,price,date_of FROM billing WHERE id=?;"; 
+			return db.queryForObject(sql, new RowMap(), id);
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 	@Override
 	public List<Billing> findForPeriod(String startDate, String endDate) {
-		String sql = "SELECT id,trainer_id,client_id,price,date_of FROM billing WHERE date_of BETWEEN ? and ?;"; 
-		return db.query(sql, new RowMap(),startDate,endDate);
+		try {
+			
+			String sql = "SELECT id,trainer_id,client_id,price,date_of FROM billing WHERE date_of BETWEEN ? and ?;"; 
+			return db.query(sql, new RowMap(),startDate,endDate);
+		} catch (Exception e) {
+			return null;
+		}
+		
 	}
 
 	@Override
