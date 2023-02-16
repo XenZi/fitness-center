@@ -72,9 +72,14 @@ public class ClientApplicationDataRepository implements IClientApplicationDataRe
 
 	@Override
 	public ClientApplicationData findOneById(String id) {
-
-		String sql = "SELECT id, height, weight FROM ClientApplicationData WHERE id=?;"; 
-		return db.queryForObject(sql, new RowMap(), id);
+		
+		try {
+			
+			String sql = "SELECT id, height, weight FROM ClientApplicationData WHERE id=?;"; 
+			return db.queryForObject(sql, new RowMap(), id);
+		} catch (Exception e) {
+			return null;
+		}
 	
 	}
 
@@ -190,8 +195,14 @@ public class ClientApplicationDataRepository implements IClientApplicationDataRe
 
 	@Override
 	public List<ClientApplicationData> findAllForUser(String userId) {
-		String sql="SELECT id, height, weight FROM ClientApplicationData WHERE id in (SELECT application_id FROM trainingSession WHERE client_id=?);";
-		return db.query(sql,new RowMap(), userId);
+		try {
+			
+			String sql="SELECT id, height, weight FROM ClientApplicationData WHERE id in (SELECT application_id FROM trainingSession WHERE client_id=?);";
+			return db.query(sql,new RowMap(), userId);
+		} catch (Exception e) {
+			return null;
+		}
+		
 	}
 	
 	

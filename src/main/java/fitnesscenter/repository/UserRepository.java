@@ -86,14 +86,24 @@ public class UserRepository implements IUserRepository {
 
 	@Override
 	public User findOneByEmailAndPassword(String email, String password) {
-		String sql = "SELECT id,phone_number,address,first_name,last_name,password,email,credit_card_number,main_language,role,timezone_id FROM users WHERE active=1 AND email=? AND password=? ;"; 
-		return db.queryForObject(sql, new RowMap(),email,password);
+		try {
+			String sql = "SELECT id,phone_number,address,first_name,last_name,password,email,credit_card_number,main_language,role,timezone_id FROM users WHERE active=1 AND email=? AND password=? ;"; 
+			return db.queryForObject(sql, new RowMap(),email,password);
+			
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 	@Override
 	public User findOneById(String id) {
-		String sql = "SELECT id,phone_number,address,first_name,last_name,password,email,credit_card_number,main_language,role,timezone_id FROM users WHERE id=?;"; 
-		return db.queryForObject(sql, new RowMap(), id);
+		try {
+			String sql = "SELECT id,phone_number,address,first_name,last_name,password,email,credit_card_number,main_language,role,timezone_id FROM users WHERE id=?;"; 
+			return db.queryForObject(sql, new RowMap(), id);
+			
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 	@Override
