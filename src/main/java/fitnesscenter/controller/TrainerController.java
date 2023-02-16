@@ -2,6 +2,7 @@ package fitnesscenter.controller;
 
 
 import fitnesscenter.interfaces.service.ITrainerService;
+import fitnesscenter.interfaces.service.ITrainingSessionService;
 import fitnesscenter.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,12 +16,15 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/trainer")
 public class TrainerController {
     @Autowired
-    private ITrai trainerService;
+    private ITrainingSessionService trainingSessionService;
 
     @GetMapping("")
     public String index(Model model, HttpSession session) {
         User user = (User) session.getAttribute("account");
-        model.addAttribute("allSessions", trainerService.f)
+        System.out.println(user.getId());
+        System.out.println(trainingSessionService.findTrainerReservedSessions(user.getId()));
+        model.addAttribute("reservedSessions", trainingSessionService.findTrainerReservedSessions(user.getId()));
+        model.addAttribute("availableSessions", trainingSessionService.findTrainerFreeSessions(user.getId()));
         return "trainer/index";
     }
 }

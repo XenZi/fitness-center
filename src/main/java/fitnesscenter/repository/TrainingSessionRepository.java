@@ -82,7 +82,7 @@ public class TrainingSessionRepository implements ITrainingSessionRepository {
 
 	@Override
 	public List<TrainingSession> findAllByUserAndStatus(String user, String userId, String status) {
-		String sql = "SELECT id,start_time,duration,status,trainer_id,client_id,application_id,watch_id,price FROM trainingsession WHERE ?=? AND status=? ;"; 
+		String sql = "SELECT id,start_time,duration,status,trainer_id,client_id,application_id,watch_id,price FROM trainingsession WHERE ? = ? AND status = ? ;";
 		return db.query(sql, new RowMap(),user,userId,status);
 	}
 
