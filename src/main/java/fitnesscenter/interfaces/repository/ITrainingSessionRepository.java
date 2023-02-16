@@ -18,4 +18,6 @@ public interface ITrainingSessionRepository {
 	
 	public void delete(String id);
 
+	void freeSession(TrainingSession trainingSession);
+
 }
