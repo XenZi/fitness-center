@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -33,6 +34,7 @@ public class AuthController {
     @PostMapping("/register")
     public void postRegister(@ModelAttribute User user, @RequestParam String mainLanguageID, @RequestParam(required = false) List<String> multiLanguageIDs) {
         userService.save(user, mainLanguageID, multiLanguageIDs, ERole.CLIENT);
+
     }
 
     @PostMapping("/register-trainer")
@@ -46,7 +48,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public void postLogin() {
+    public void postLogin(@RequestParam String email, @RequestParam String password, HttpSession session) {
 
     }
 }
