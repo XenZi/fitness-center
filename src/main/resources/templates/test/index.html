@@ -11,7 +11,7 @@
             integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
             crossorigin="anonymous"
     />
-    <link th:href="@{./css/style.css}" rel="stylesheet" />
+    <link th:href="@{../css/style.css}" rel="stylesheet" />
     <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
@@ -117,7 +117,9 @@
                                     ></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="#">
+                                    <form action="/review/create" method="POST">
+                                        <input type="hidden" name="trainerID" th:value="${activeSession.trainer.getId()}">
+                                        <input type="hidden" name="clientID" th:value="${activeSession.client.getId()}">
                                         <div class="form-floating mb-3">
                                             <input
                                                     type="number"
@@ -131,11 +133,12 @@
                                             <label for="rating">Leave rating (1 to 5)</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                          <textarea
-                                  class="form-control"
-                                  placeholder="Leave a comment here"
-                                  id="floatingTextarea"
-                          ></textarea>
+                                          <textarea
+                                                  class="form-control"
+                                                  placeholder="Leave a comment here"
+                                                  id="floatingTextarea"
+                                                  name="txt"
+                                          ></textarea>
                                             <label for="floatingTextarea">Comments</label>
                                         </div>
                                         <button class="btn btn-primary">Submit</button>
@@ -157,5 +160,6 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"
 ></script>
+<script src="../js/session-page.js"></script>
 </body>
 </html>
